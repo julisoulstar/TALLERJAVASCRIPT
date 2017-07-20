@@ -4,8 +4,7 @@
       asterisk1=asterisk1+asterisk;
       i++;
       console.log(asterisk1);
-    } while (i <= 5);
-    
-    if (asterisk1 === "******" ) {
-    var i = 5;
+      if (asterisk1 === "******" ) {
+    var i = 6;
     }
+    } while (i <= 5);
