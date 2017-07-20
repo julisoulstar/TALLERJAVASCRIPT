@@ -1,0 +1,14 @@
+    var number1=prompt("Enter a number");
+    var number2=prompt("Enter a number");
+    console.log(number1 + " to " + number2 + " is:");
+    console.log(parseInt(number1)**parseInt(number2));
+    console.log(number2 + " to " + number1 + " is:");
+    console.log(parseInt(number2)**parseInt(number1));
+    console.log("The multiplication between " + number1 + " and " + number2 + " is:");
+    console.log(parseInt(number1)*parseInt(number2));
+    console.log("The division between " + number1 + " and " + number2 + " is:");
+    console.log(parseInt(number1)/parseInt(number2));
+    console.log("The division between " + number2 + " and " + number1 + " is:");
+    console.log(parseInt(number2)/parseInt(number1));
+    console.log("The module of the division between " + number1 + " and " + number2 + " is:");
+    console.log(parseInt(number1)%parseInt(number2));
