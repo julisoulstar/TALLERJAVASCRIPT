@@ -1,10 +1,10 @@
 
 function menu() {
-  var option = prompt("   1. Realizar una suma\n\
-    2. Realizar una resta\n\
-    3. Realizar una multiplicacion\n\
-    4. Realizar una division\n\
-    0. Salir del programa");
+  var option = prompt("   1. To make a sum\n\
+    2. Perform a subtraction\n\
+    3. Perform a multiplication\n\
+    4. Make a division\n\
+    0. exit the program");
   return parseInt(option);
 }
 
