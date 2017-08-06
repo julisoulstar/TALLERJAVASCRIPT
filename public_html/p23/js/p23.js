@@ -11,8 +11,8 @@
     
     var c =a-b;
     var days = Math.floor(c/(1000*60*60*24));
-    months=days/30;
-    years=months/12;
+    var months=days/30;
+    var years=months/12;
     console.log('Difference in days : '+days);
     console.log('Difference in months : '+months);
     console.log('Difference in years : '+years);
