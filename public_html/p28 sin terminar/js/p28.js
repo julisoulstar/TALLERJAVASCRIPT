@@ -2,7 +2,7 @@ var text1;
 var op = 0;
 var array = [];
 var i = 0;
-found = false;
+var found = false;
 do {
   function menu() {
     var option = prompt("    1. Fill arrangement\n\

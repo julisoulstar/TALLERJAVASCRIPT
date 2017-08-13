@@ -2,7 +2,7 @@
     var familyinfo ="";
     var workinfo ="";
     var professionalinfo ="";
-    op = 0;
+    var op = 0;
     do {
     function menu() {
       var option = prompt("Select an option to enter your data.\n\
@@ -38,6 +38,7 @@
     personalinfo.occupation = prompt('Enter your occupation');
     personalinfo.email = prompt('Enter your email');
     personalinfo.civilStatus = prompt('Enter your marital status');
+    localStorage.setItem("Nombre", personalinfo.name);
     
     }
     function family() {
@@ -93,6 +94,9 @@
     }
     function print() {
       op = 1;
+      console.log("nombre : "+na);
+      
+
       console.log('\
             RESUME\n\
       Personal information');
