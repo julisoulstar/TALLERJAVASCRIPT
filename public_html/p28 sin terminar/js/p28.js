@@ -22,8 +22,8 @@ do {
   function Fillarrangement() {
 
     function menu2() {
-      var option2 = prompt("    1. definir tamaño del arreglo\n\
-    2. llenar arreglo (numeros aleatorios)");
+      var option2 = prompt("    1. Set size of the array\n\
+    2. Fill arrangement (random numbers)");
       return parseInt(option2);
 
     }
@@ -31,7 +31,7 @@ do {
 
     switch (result2) {
       case 1:
-        definir();
+        define();
         break;
       case 2:
         fill();
@@ -43,8 +43,8 @@ do {
     }
   }
 
-  function definir() {
-    i = parseInt(prompt("indique el tamaño del arreglo"));
+  function define() {
+    i = parseInt(prompt("Indicate the size of the arrangement"));
   }
   function fill() {
     for (j = 0; j < i; j++) {
@@ -53,7 +53,7 @@ do {
   }
   function Findelemen() {
     var pos = [];
-    txt1 = parseInt(prompt("ingresa numero"));
+    txt1 = parseInt(prompt("Type number"));
     for (var s = 0; s < array.length; s++) {
       if (array[s] === txt1) {
         found = true;
@@ -61,9 +61,9 @@ do {
       }
     }
     if (found) {
-      console.log("el dato se encuentra y esta en la posicion ", pos);
+      console.log("The data is found and is in the position ", pos);
     } else {
-      console.log("el dato no se encuentra en el arreglo");
+      console.log("The data is not in the array");
     }
   }
   function Applybubble() {

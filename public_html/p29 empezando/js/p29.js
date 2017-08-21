@@ -1,12 +1,10 @@
-var dato;
-var contacto;
 var op = 0;
 do {
   function menu() {
-    var option = prompt("        1. registrar elemento\n\
-        2. buscar elemento por nombre\n\
-        3. buscar elemento por codigo\n\
-        4. imprimir elementos resgistrados\n\
+    var option = prompt("        1. Register item\n\
+        2. Find item by name\n\
+        3. Search item by code\n\
+        4. Print registered items\n\
         0. exit the program");
     return parseInt(option);
   }
@@ -14,53 +12,53 @@ do {
   var result = menu();
 
   function register() {
-    var nombre = prompt('Digite su nombre');
-    var codigo = parseInt(prompt('Digite su codigo'));
-    var dato = {
-      nombre,
-      codigo
+    var Name = prompt('Type element name');
+    var Code = parseInt(prompt('Type element code'));
+    var data = {
+      Name,
+      Code
     };
-    var contacto = JSON.parse(localStorage.getItem('contacto'));
-    if (contacto === null) {
-      var contacto = [
-        dato
+    var Inventory = JSON.parse(localStorage.getItem('Inventory'));
+    if (Inventory === null) {
+      var Inventory = [
+        data
       ];
     } else {
-      contacto.push(dato);
+      Inventory.push(data);
     }
-    localStorage.setItem('contacto', JSON.stringify(contacto));
+    localStorage.setItem('Inventory', JSON.stringify(Inventory));
   }
   function searchname() {
-    var name = prompt('escribe el nombre que deseas buscar');
+    var Name2 = prompt('Type the name of the item you want to search for');
     var flag = 0;
-    var contacto = JSON.parse(localStorage.getItem('contacto'));
-    for (let contact of contacto){
-      if (contact.nombre === name) {
+    var Inventory = JSON.parse(localStorage.getItem('Inventory'));
+    for (let contact of Inventory){
+      if (contact.Name === Name2) {
         flag++;
         if (flag === 1){
-      console.log('el elemento ha sido encontrado, nombre : '+contact.nombre+' - codigo : '+contact.codigo);
+      console.log('The item has been found, Name : '+contact.Name+' - Code : '+contact.Code);
     }
     }
     }
-    console.log(flag === 0? 'El elemento NO ha sido encontrado' : '');
+    console.log(flag === 0? 'The item has NOT been found' : '');
   }
   function searchcode() {
-    var name = parseInt(prompt('escribe el codigo que deseas buscar'));
+    var code2 = parseInt(prompt('Write the code of the item you want to search'));
     var flag = 0;
-    var contacto = JSON.parse(localStorage.getItem('contacto'));
-    for (let contact of contacto){
-      if (contact.codigo === parseInt(name)) {
+    var Inventory = JSON.parse(localStorage.getItem('Inventory'));
+    for (let contact of Inventory){
+      if (contact.Code === parseInt(code2)) {
         flag++;
         if (flag === 1){
-      console.log('el elemento ha sido encontrado, nombre : '+contact.nombre+' - codigo : '+contact.codigo);
+      console.log('The item has been found, Name : '+contact.Name+' - Code : '+contact.Code);
     }
     }
     }
-    console.log(flag === 0? 'El elemento NO ha sido encontrado' : '');
+    console.log(flag === 0? 'The item has NOT been found' : '');
 
   }
   function print() {
-    console.log(JSON.parse(localStorage.getItem('contacto')));
+    console.log(JSON.parse(localStorage.getItem('Inventory')));
 
   }
   function exit() {
