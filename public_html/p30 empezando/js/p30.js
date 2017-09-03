@@ -1,7 +1,6 @@
 var salaryminimun;
 var identificationcard;
 var op = 0;
-do {
   function menu() {
     var option = prompt("        configuracion del software de nomina\n\
         1. seleccione idioma\n\
@@ -11,11 +10,13 @@ do {
         seleccione una opcion :");
     //
     //config nombre de empresa:
+    var MinimumSalarys = parseInt("3");
     var Salary = parseInt("600000");
     var CompanyName = "STARSCOMPANY";
     var data = {
       CompanyName,
-      Salary
+      Salary,
+      MinimumSalarys
     };
     var company = JSON.parse(localStorage.getItem('company'));
     if (company === null) {
@@ -54,7 +55,7 @@ do {
     return parseInt(option);
   }
 
-  var result = menu();
+  
 
   function language() {
     var option = prompt("        configuracion del software de nomina\n\
@@ -188,6 +189,45 @@ function salary(){
     localStorage.setItem('company', JSON.stringify(company));
     salary();
 }
+function retention(){
+    function retention2(){
+    var option = prompt("        configuracion del software de nomina\n\
+        Salario minimo\n\
+        1. Imprimir numero de salarios minimos para cobrar retencion en la fuente\n\
+        2. Modificar numero de salarios minimos\n\
+        3. vovler\n\
+        seleccione una opcion :");
+    return parseInt(option);
+    }
+    var result = retention2();
+    switch (result) {
+      case 1:
+        printretention();
+        break;
+      case 2:
+        modifyretention();
+        break;
+      case 3:
+        setup();
+        break;
+    }
+  }
+  function printretention(){
+    var company = JSON.parse(localStorage.getItem('company'));
+    for (let contact of company){
+      console.log('numero de salarios minimos para cobrar retencion en la fuente : '+contact.MinimumSalarys);
+    }
+   retention();
+  }
+  function modifyretention(){
+    var company = JSON.parse(localStorage.getItem('company'));
+          for (let contact of company){
+     contact.MinimumSalarys = prompt('A partir de cuantos salarios minimos se cobra retencion en la fuente');
+    }
+    localStorage.setItem('company', JSON.stringify(company));
+    retention();
+}
+
   function go() {
     function menu2() {
       var option = prompt("        software de nomina\n\
@@ -266,7 +306,7 @@ function salary(){
     for (let contact of Inventory) {
       if (contact.cedula === cedula) {
         console.log('La cedula digitada ya se encuentra registrada');
-        one();
+        return one();
       }
     }
     var nombre = prompt('escriba su nombre');
@@ -276,7 +316,7 @@ function salary(){
     for (let contact of company){
       if (salario < contact.Salary){
         console.log('debe ingresar uno menor');
-        one();
+        return one();
       }
     }
     var datos = {
@@ -384,7 +424,7 @@ function salary(){
         }
       }
     }
-    Modify();
+    one();
   }
     function modify3(){
     var flag = 0;
@@ -398,7 +438,7 @@ function salary(){
         }
       }
     }
-    Modify();
+    one();
   }
     function modify4(){
     var flag = 0;
@@ -412,7 +452,7 @@ function salary(){
         }
       }
     }
-    Modify();
+    one();
   }
     function modify5(){
     var flag = 0;
@@ -426,7 +466,7 @@ function salary(){
         }
       }
     }
-    Modify();
+    one();
   }
   
   
@@ -446,6 +486,7 @@ function salary(){
       }
     }
         if (flag === 1) {
+          console.log('se ha eliminado :');
           console.log(object);
           Inventory[x]=Inventory[0];
           Inventory[0]=object;
@@ -468,6 +509,15 @@ function salary(){
         ");
       var lista = JSON.parse(localStorage.getItem('lista'));
       lista.forEach(function (element) {
+        for (var i = 0; i < lista.forEach-1; i++) {
+      for (var j = i+1; j < lista.forEach; j++) {
+        if (element.cedula[j] < element.cedula[i]) {
+          var p = element.cedula[i];
+          element.cedula[i] = element.cedula[j];
+          element.cedula[j] = p;
+        }
+      }
+    }
         console.log("        |    "+element.cedula + "      |   " + element.nombre +"     |    "+ element.apellido +"     |    "+ element.cargo+"      |    " +element.salario +"      |");
       });
       console.log("\n\
@@ -477,7 +527,9 @@ function salary(){
   function returnn() {
     go();
   }
-  switch (result) {
+  do {
+    var result = menu();
+    switch (result) {
     case 1:
       language();
       break;
