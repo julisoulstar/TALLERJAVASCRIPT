@@ -1,3 +1,5 @@
+var confirmation = 0;
+var advice = 0;
 var text1;
 var op = 0;
 var array = [];
@@ -20,16 +22,10 @@ do {
   var result = menu();
 
   function Fillarrangement() {
+    var option2 = parseInt(prompt("    1. Set size of the array\n\
+    2. Fill arrangement (random numbers)"));
 
-    function menu2() {
-      var option2 = prompt("    1. Set size of the array\n\
-    2. Fill arrangement (random numbers)");
-      return parseInt(option2);
-
-    }
-    var result2 = menu2();
-
-    switch (result2) {
+    switch (option2) {
       case 1:
         define();
         break;
@@ -47,8 +43,21 @@ do {
     i = parseInt(prompt("Indicate the size of the arrangement"));
   }
   function fill() {
-    for (j = 0; j < i; j++) {
-      array[j] = Math.round((Math.random() * 100));
+    if (advice === 0) {
+      for (j = 0; j < i; j++) {
+        array[j] = Math.round((Math.random() * 100));
+      }
+    } else if (advice === 1) {
+      confirmation = parseInt(prompt('you are sure to re-fill the arrangement? Yes(1)/No(2)'));
+
+    }
+    if (confirmation === 1) {
+      advice = 0;
+      for (j = 0; j < i; j++) {
+        array[j] = Math.round((Math.random() * 100));
+      }
+    } else if (confirmation === 2) {
+      menu();
     }
   }
   function Findelemen() {
@@ -67,6 +76,7 @@ do {
     }
   }
   function Applybubble() {
+    advice = 1;
     for (var i = 1; i < array.length; i++) {
       for (var j = 0; j < (array.length - i); j++) {
         if (array[j] > array[j + 1]) {
@@ -80,8 +90,9 @@ do {
   }
 
   function Applybidirectional() {
-    for (var i = 0; i < array.length-1; i++) {
-      for (var j = i+1; j < array.length; j++) {
+    advice = 1;
+    for (var i = 0; i < array.length - 1; i++) {
+      for (var j = i + 1; j < array.length; j++) {
         if (array[j] < array[i]) {
           var p = array[i];
           array[i] = array[j];
@@ -90,19 +101,57 @@ do {
       }
     }
     return array;
-
-
   }
   function Applyinsertion() {
-    
+    advice = 1;
+    var size = array.length,
+            slot,
+            tmp;
 
-
+    for (var item = 0; item < size; item++) { // outer loop
+      tmp = array[item];
+      for (slot = item - 1; slot >= 0 && array[slot] > tmp; slot--) { // inner loop
+        array[ slot + 1 ] = array[slot];
+      }
+      array[ slot + 1 ] = tmp;
+    }
+    return array;
   }
+
   function Applymethod() {
-
+    advice = 1;
+    let mergeSort = array => {
+      if (array.length < 2) {
+        return array;
+      }
+      let middle = parseInt(array.length / 2) | 0;
+      let left = array.slice(0, middle);
+      let right = array.slice(middle);
+      let merge = (left, right) => {
+        let result = [];
+        let il = ir = 0;
+        while (il < left.length && ir < right.length) {
+          result.push((left[il] < right[ir]) ? left[il++] : right[ir++]);
+        }
+        return [...result, ...left.slice(il), ...right.slice(ir)];
+      };
+      return merge(mergeSort(left), mergeSort(right));
+    };
+    let result = mergeSort(array);
+    array = result;
   }
-  function Applytheordering() {
 
+  function Applytheordering() {
+    advice = 1;
+    for (let j = 0; j < array.length; ++j) {
+      let i = iMin = j;
+      for (++i; i < array.length; ++i) {
+        (array[ i ] < array[ iMin ]) && (iMin = i);
+      }
+      [array[ j ], array[ iMin ]] = [array[ iMin ], array[ j ]];
+    }
+
+    return array;
   }
   function Print() {
     console.log(array);
