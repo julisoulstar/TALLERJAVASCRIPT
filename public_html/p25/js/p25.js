@@ -47,6 +47,7 @@ accountanteven = accountanteven + 1;
 averageeven = sumeven / accountanteven;
 console.log("The average of even numbers is: " + averageeven);
 console.log('--------------------------------------------------');
+
 //-pares con while-------------------------------------------------
 
 i = 0;
