@@ -10,13 +10,21 @@ function menu() {
         seleccione una opcion :");
   //
   //config nombre de empresa:
+  var workingHoursPerMonth = parseInt("192");
+  var transportAid = parseInt("100000");
+  var transportAidwages = parseInt("1");
+  var retentionRate = parseInt("10");
   var MinimumSalarys = parseInt("3");
   var Salary = parseInt("600000");
   var CompanyName = "STARSCOMPANY";
   var data = {
     CompanyName,
     Salary,
-    MinimumSalarys
+    MinimumSalarys,
+    retentionRate,
+    transportAidwages,
+    transportAid,
+    workingHoursPerMonth
   };
   var company = JSON.parse(localStorage.getItem('company'));
   if (company === null) {
@@ -117,31 +125,25 @@ function companyname() {
         seleccione una opcion :"));
   switch (option) {
     case 1:
-      printname();
+      var company = JSON.parse(localStorage.getItem('company'));
+      localStorage.setItem('company', JSON.stringify(company));
+      for (let contact of company) {
+        console.log('Nombre de la empresa : ' + contact.CompanyName);
+      }
+      companyname();
       break;
     case 2:
-      modifycompanyname();
+      var company = JSON.parse(localStorage.getItem('company'));
+      for (let contact of company) {
+        contact.CompanyName = prompt('escribe nombre de empresa');
+      }
+      localStorage.setItem('company', JSON.stringify(company));
+      companyname();
       break;
     case 3:
       setup();
       break;
   }
-}
-function printname() {
-  var company = JSON.parse(localStorage.getItem('company'));
-  localStorage.setItem('company', JSON.stringify(company));
-  for (let contact of company) {
-    console.log('Nombre de la empresa : ' + contact.CompanyName);
-  }
-  companyname();
-}
-function modifycompanyname() {
-  var company = JSON.parse(localStorage.getItem('company'));
-  for (let contact of company) {
-    contact.CompanyName = prompt('escribe nombre de empresa');
-  }
-  localStorage.setItem('company', JSON.stringify(company));
-  companyname();
 }
 function salary() {
   var option = parseInt(prompt("        configuracion del software de nomina\n\
@@ -152,30 +154,24 @@ function salary() {
         seleccione una opcion :"));
   switch (option) {
     case 1:
-      printsalary();
+      var company = JSON.parse(localStorage.getItem('company'));
+      for (let contact of company) {
+        console.log('salario minimo : ' + contact.Salary);
+      }
+      salary();
       break;
     case 2:
-      modifysalary();
+      var company = JSON.parse(localStorage.getItem('company'));
+      for (let contact of company) {
+        contact.Salary = prompt('escribe el salario minimo');
+      }
+      localStorage.setItem('company', JSON.stringify(company));
+      salary();
       break;
     case 3:
       setup();
       break;
   }
-}
-function printsalary() {
-  var company = JSON.parse(localStorage.getItem('company'));
-  for (let contact of company) {
-    console.log('salario minimo : ' + contact.Salary);
-  }
-  salary();
-}
-function modifysalary() {
-  var company = JSON.parse(localStorage.getItem('company'));
-  for (let contact of company) {
-    contact.Salary = prompt('escribe el salario minimo');
-  }
-  localStorage.setItem('company', JSON.stringify(company));
-  salary();
 }
 function retention() {
   var option = parseInt(prompt("        configuracion del software de nomina\n\
@@ -186,32 +182,140 @@ function retention() {
         seleccione una opcion :"));
   switch (option) {
     case 1:
-      printretention();
+      var company = JSON.parse(localStorage.getItem('company'));
+      for (let contact of company) {
+        console.log('cantidad de salarios minimos para cobrar retencion en la fuente : ' + contact.MinimumSalarys);
+      }
+      retention();
       break;
     case 2:
-      modifyretention();
+      var company = JSON.parse(localStorage.getItem('company'));
+      for (let contact of company) {
+        contact.MinimumSalarys = prompt('A partir de cuantos salarios minimos se cobra retencion en la fuente');
+      }
+      localStorage.setItem('company', JSON.stringify(company));
+      retention();
       break;
     case 3:
       setup();
       break;
   }
 }
-function printretention() {
-  var company = JSON.parse(localStorage.getItem('company'));
-  for (let contact of company) {
-    console.log('numero de salarios minimos para cobrar retencion en la fuente : ' + contact.MinimumSalarys);
+function percentage() {
+  var option = parseInt(prompt("        configuracion del software de nomina\n\
+        Nombre de la empresa\n\
+        1. Imprimir porcentaje de retencion en la fuente\n\
+        2. Modificar porcentaje de retencion en la fuente\n\
+        3. vovler\n\
+        seleccione una opcion :"));
+  switch (option) {
+    case 1:
+      var company = JSON.parse(localStorage.getItem('company'));
+      for (let contact of company) {
+        console.log('porcentaje de retencion en la fuente : ' + contact.retentionRate + " %");
+      }
+      percentage();
+      break;
+    case 2:
+      var company = JSON.parse(localStorage.getItem('company'));
+      for (let contact of company) {
+        contact.retentionRate = parseInt(prompt('Escriba el porcentaje de retencion en la fuente'));
+      }
+      localStorage.setItem('company', JSON.stringify(company));
+      percentage();
+      break;
+    case 3:
+      setup();
+      break;
   }
-  retention();
 }
-function modifyretention() {
-  var company = JSON.parse(localStorage.getItem('company'));
-  for (let contact of company) {
-    contact.MinimumSalarys = prompt('A partir de cuantos salarios minimos se cobra retencion en la fuente');
+function helptransport() {
+  var option = parseInt(prompt("        configuracion del software de nomina\n\
+        Nombre de la empresa\n\
+        1. Imprimir la cantidad de salarios minimos para pagar auxilio de transporte\n\
+        2. Modificar la cantidad de salarios minimos para pagar auxilio de transporte\n\
+        3. vovler\n\
+        seleccione una opcion :"));
+  switch (option) {
+    case 1:
+      var company = JSON.parse(localStorage.getItem('company'));
+      localStorage.setItem('company', JSON.stringify(company));
+      for (let contact of company) {
+        console.log('cantidad de salarios minimos para pagar auxilio de transporte : ' + contact.transportAidwages);
+      }
+      helptransport();
+      break;
+    case 2:
+      var company = JSON.parse(localStorage.getItem('company'));
+      for (let contact of company) {
+        contact.transportAidwages = prompt('escribe la cantidad de salarios minimos para pagar auxilio de transporte');
+      }
+      localStorage.setItem('company', JSON.stringify(company));
+      helptransport();
+      break;
+    case 3:
+      setup();
+      break;
   }
-  localStorage.setItem('company', JSON.stringify(company));
-  retention();
 }
-
+function helptransport2() {
+  var option = parseInt(prompt("        configuracion del software de nomina\n\
+        Nombre de la empresa\n\
+        1. Imprimir auxilio de transporte\n\
+        2. Modificar auxilio de transporte\n\
+        3. vovler\n\
+        seleccione una opcion :"));
+  switch (option) {
+    case 1:
+      var company = JSON.parse(localStorage.getItem('company'));
+      localStorage.setItem('company', JSON.stringify(company));
+      for (let contact of company) {
+        console.log('auxilio de transporte : ' + contact.transportAid);
+      }
+      helptransport2();
+      break;
+    case 2:
+      var company = JSON.parse(localStorage.getItem('company'));
+      for (let contact of company) {
+        contact.transportAid = prompt('escribe la cantidad del auxilio de transporte');
+      }
+      localStorage.setItem('company', JSON.stringify(company));
+      helptransport2();
+      break;
+    case 3:
+      setup();
+      break;
+  }
+}
+function hours() {
+  var option = parseInt(prompt("        configuracion del software de nomina\n\
+        Nombre de la empresa\n\
+        1. Imprimir la cantidad de horas laborables al mes\n\
+        2. Modificar la cantidad de horas laborales al mes\n\
+        3. vovler\n\
+        seleccione una opcion :"));
+  switch (option) {
+    case 1:
+      var company = JSON.parse(localStorage.getItem('company'));
+      localStorage.setItem('company', JSON.stringify(company));
+      for (let contact of company) {
+        console.log('cantidad de horas laborales al mes : ' + contact.workingHoursPerMonth);
+      }
+      helptransport2();
+      break;
+    case 2:
+      var company = JSON.parse(localStorage.getItem('company'));
+      for (let contact of company) {
+        contact.workingHoursPerMonth = prompt('escriba la cantidad de horas laborales al mes');
+      }
+      localStorage.setItem('company', JSON.stringify(company));
+      helptransport2();
+      break;
+    case 3:
+      setup();
+      break;
+  }
+}
 function go() {
   var option = parseInt(prompt("        software de nomina\n\
         1. Gestion de empleados\n\
@@ -264,7 +368,7 @@ function one() {
       print2();
       break;
     case 5:
-      returnn();
+      go();
       break;
     case 0:
       exit();
@@ -456,9 +560,14 @@ function remove() {
   var Inventory = JSON.parse(localStorage.getItem('lista'));
   for (var i = 0; i < Inventory.length; i++) {
     if (Inventory[i].cedula === identificationcard) {
+      var question = parseInt(prompt('esta seguro de eliminar al empleado? Yes(1)/No(2)'));
+    }
+    if (question === 1) {
       flag++;
       x = i;
       object = Inventory[x];
+    } else if (question === 2) {
+      flag = 2;
     }
   }
   if (flag === 1) {
@@ -469,13 +578,11 @@ function remove() {
 
     Inventory.shift();
     localStorage.setItem('lista', JSON.stringify(Inventory));
+  } else if (flag === 2) {
+    console.log('Se ha cancelado la eliminacion');
+  } else if (flag === 0) {
+    console.log('La cedula no se encuentra registrada');
   }
-  console.log(flag === 0 ? 'La cedula no se encuentra registrada' : '');
-  one();
-}
-function exit() {
-  op = 1;
-  console.log('Bye');
 }
 function print2() {
   console.log("\
@@ -485,23 +592,33 @@ function print2() {
         ");
   var lista = JSON.parse(localStorage.getItem('lista'));
   lista.forEach(function (element) {
-    for (var i = 0; i < lista.forEach - 1; i++) {
-      for (var j = i + 1; j < lista.forEach; j++) {
-        if (element.cedula[j] < element.cedula[i]) {
-          var p = element.cedula[i];
-          element.cedula[i] = element.cedula[j];
-          element.cedula[j] = p;
-        }
-      }
-    }
     console.log("        |    " + element.cedula + "      |   " + element.nombre + "     |    " + element.apellido + "     |    " + element.cargo + "      |    " + element.salario + "      |");
   });
   console.log("\n\
         +-------------------------------------------------------------------------------------------------------+");
   one();
 }
-function returnn() {
-  go();
+function two() {
+  var flag = 0;
+  var Inventory = JSON.parse(localStorage.getItem('lista'));
+  var company = JSON.parse(localStorage.getItem('company'));
+  var identificationcard = prompt("Escriba la cedula del empleado a registrar las horas laborales");
+  for (let contact of Inventory) {
+    if (contact.cedula === identificationcard) {
+      flag++;
+      if (flag === 1) {
+        var Daytimehours
+      }
+    }
+  }
+  one();
+}
+
+
+
+function exit() {
+  op = 1;
+  console.log('Bye');
 }
 do {
   var result = menu();
