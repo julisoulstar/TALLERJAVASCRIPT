@@ -1,17 +1,18 @@
-var result1 = parseInt(50) ** parseInt(10);
-var result2 = parseInt(10) ** parseInt(50);
-var result3 = parseInt(50) * parseInt(10);
-var result4 = parseInt(50) / parseInt(10);
-var result5 = parseInt(10) / parseInt(50);
-var result6 = parseInt(50) % parseInt(10);
-var result7 = parseInt(50) - parseInt(10);
-var result8 = parseInt(50) + parseInt(10);
+function math() {
+  var number1 = $('#number1').val();
+  var number2 = $('#number2').val();
 
-$('#text').text("50 to 10 is: " + result1 + "\n\
-10 to 50 is: " + result2 + "\n\
-The multiplication between 50 and 10 is: " + result3 + "\n\
-The division between 50 and 10 is: " + result4 + "\n\
-The division between 10 and 50 is: " + result5 + "\n\
-The division module between 50 and 10 is: " + result6 + "\n\
-The subtraction between 50 and 10 is: " + result7 + "\n\
-The sum between 50 and 10 is: " + result8 + ".");
+  var result1 = parseInt(number1) ** parseInt(number2);
+  var result2 = parseInt(number2) ** parseInt(number1);
+  var result3 = parseInt(number1) * parseInt(number2);
+  var result4 = parseInt(number1) / parseInt(number2);
+  var result5 = parseInt(number2) / parseInt(number1);
+  var result6 = parseInt(number1) % parseInt(number2);
+
+  $('#text').text(number1 + " to " + number2 + " is : " + result1 + "\n\
+" + number2 + " to " + number1 + " is : " + result2 + "\n\
+The multiplication between " + number1 + " and " + number2 + " is : " + result3 + "\n\
+The division between " + number1 + " and " + number2 + " is : " + result4 + "\n\
+The division between " + number2 + " and " + number1 + " is : " + result5 + "\n\
+The division module between " + number1 + " and " + number2 + " is : " + result6 + ".");
+}
