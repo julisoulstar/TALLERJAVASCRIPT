@@ -9,32 +9,33 @@
   <body>
     <div class="container">
       <form role="form">
-        <div class="form-group">
-          <input type="text" class="form-group-sm" id="name" placeholder="Write your name"><br><br>
+        <div class="form-group col-md-6 jumbotron">
+          <input type="text" class="form-group-sm form-control" id="name" placeholder="Write your name"><br><br>
           <label for="DocumentType">Document Type</label><br><br>
-          <select class="form-group-lg" id="DocumentType">
+          <select class="form-group-lg form-control" id="DocumentType">
             <option>identification card</option>
             <option>identity card</option>
             <option>Foreigner ID</option>
             <option>passport</option>
           </select><br><br>
-          <input type="number" class="form-group-sm" id="identificationNumber" placeholder="Write your identification number"><br><br>
+          <input type="number" class="form-group-sm form-control" id="identificationNumber" placeholder="Write your identification number"><br><br>
           <label for="BiologicalGender">Biologica lGender</label><br><br>
-          <select class="form-group-lg" id="BiologicalGender">
+          <select class="form-group-lg form-control" id="BiologicalGender">
             <option>Male</option>
             <option>Female</option>
           </select><br><br>
-          <input type="number" class="form-group-sm" id="height" placeholder="Write your height"><br><br>
+          <input type="number" class="form-group-sm form-control" id="height" placeholder="Write your height"><br><br>
           <label for="question">you live in cartago?</label><br><br>
-          <select class="form-group-lg" id="question">
+          <select class="form-group-lg form-control" id="question">
             <option>True</option>
             <option>False</option>
-          </select><br><br>
+          </select><br>
+          <button class="btn btn-block" type="button" onclick="message()">Send</button>
+          <br>
           <fieldset disabled>
-            <textarea id="text" rows="7" cols="70" ></textarea><br>
+            <textarea id="text" rows="7" cols="71" ></textarea><br>
           </fieldset>
         </div>
-        <button type="button" onclick="message()">Send</button>
       </form>
     </div>
     <script src="../node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>

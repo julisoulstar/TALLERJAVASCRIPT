@@ -1,7 +1,6 @@
 var a = "*";
 var b = "______";
-var c = 1;
-while (c <= 6) {
+for (c = 1; c <= 13; c++) {
   if (a === "*") {
     b = b + a;
     $('#text').append(b.slice(c), "<br>");

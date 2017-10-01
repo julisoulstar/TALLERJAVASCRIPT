@@ -9,5 +9,5 @@ function message() {
 My " + DocumentType + " number is " + identificationNumber + ".\n\
 Biological gender: " + BiologicalGender + ".\n\
 My height is: " + height + " mts.\n\
-Is it true that I live in Carthage ?: " + question + "");
+Is it true that I live in Cartago ?: " + question + "");
 }
