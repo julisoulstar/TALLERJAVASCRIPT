@@ -7,26 +7,27 @@
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
-    <div class="container">
+    <div class="container jumbotron">
       <div class="text-center"><br><br>
         <h1>TIME</h1>
         <br><br>
-        <p>Date</p>
-        <br><br>
-        <p>Date</p>
+        <label for="date1">Enter the first date</label>
         <br><br>
         <div class="container col-lg-2 col-lg-offset-5">
           <input class="form-control" type="date" id="date1">
+          <br><br>
+          <label for="date2">Enter the second date</label>
           <br><br>
           <input class="form-control" type="date" id="date2">
           <br><br>
         </div>
         <div class="col-xs-12 col-sm-12 col-lg-12">
-          <button id="button" type="button" onclick="math()">deploy</button></div>
+          <button class="btn btn-warning" id="button" type="button" onclick="math()">submit</button>
+        </div>
         <br><br>
         <div class="col-xs-12 col-sm-12 col-lg-12">
           <fieldset disabled>
-            <textarea id="text" rows="6" cols="25" ></textarea><br>
+            <textarea id="text" rows="4" cols="30" ></textarea><br>
           </fieldset></div>
       </div>
     </div>
