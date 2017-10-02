@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>point 62</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-center"><br><br>
+        <h1>MATH</h1>
+        <div id="menu">
+          <br><br>
+          <h3>select an operation</h3>
+          <br><br>
+          <button class="btn btn-warning" type="button" id="addition">Make a Addition</button>
+          <br><br>
+          <button class="btn btn-info" type="button" id="subtraction">Make a Subtraction</button>
+          <br><br>
+          <button class="btn btn-danger" type="button" id="multiplication">Make a Multiplication</button>
+          <br><br>
+          <button class="btn btn-success" type="button" id="division">Make a Division</button>
+          <br><br>
+        </div>
+        <div id="additions">
+          <h3>Addition</h3>
+          <br>
+          <label for="addition1">Write the first number</label>
+          <br><br>
+          <input type="number" id="addition1">
+          <br><br>
+          <label for="addition2">Write the second number</label>
+          <br><br>
+          <input type="number" id="addition2">
+          <br><br>
+          <div class="col-lg-1 col-lg-offset-5">
+            <button class="btn btn-info" onclick="addition()" type="button">calculate</button>
+          </div>
+          <div class="col-lg-1">
+            <button class="btn btn-danger" type="button" id="return1">return</button>
+          </div>
+          <br><br>
+          <fieldset disabled>
+            <textarea id="text1" rows="6" cols="30" ></textarea><br>
+          </fieldset>
+        </div>
+        <div id="subtractions">
+          <h3>subtraction</h3>
+          <br>
+          <label for="subtraction1">Write the first number</label>
+          <br><br>
+          <input type="number" id="subtraction1">
+          <br><br>
+          <label for="subtraction2">Write the second number</label>
+          <br><br>
+          <input type="number" id="subtraction2">
+          <br><br>
+          <div class="col-lg-1 col-lg-offset-5">
+            <button class="btn btn-info" onclick="subtraction()" type="button">calculate</button>
+          </div>
+          <div class="col-lg-1">
+            <button class="btn btn-danger" type="button" id="return2">return</button>
+          </div>
+          <br><br>
+          <fieldset disabled>
+            <textarea id="text2" rows="6" cols="30" ></textarea><br>
+          </fieldset>
+        </div>
+        <div id="multiplications">
+          <h3>multiplication</h3>
+          <br>
+          <label for="multiplication1">Write the first number</label>
+          <br><br>
+          <input type="number" id="multiplication1">
+          <br><br>
+          <label for="multiplication2">Write the second number</label>
+          <br><br>
+          <input type="number" id="multiplication2">
+          <br><br>
+          <div class="col-lg-1 col-lg-offset-5">
+            <button class="btn btn-info" onclick="multiplication()" type="button">calculate</button>
+          </div>
+          <div class="col-lg-1">
+            <button class="btn btn-danger" type="button" id="return3">return</button>
+          </div>
+          <br><br>
+          <fieldset disabled>
+            <textarea id="text3" rows="6" cols="30" ></textarea><br>
+          </fieldset>
+        </div>
+        <div id="divisions">
+          <h3>division</h3>
+          <br>
+          <label for="division1">Write the first number</label>
+          <br><br>
+          <input type="number" id="division1">
+          <br><br>
+          <label for="division2">Write the second number</label>
+          <br><br>
+          <input type="number" id="division2">
+          <br><br>
+          <div class="col-lg-1 col-lg-offset-5">
+            <button class="btn btn-info" onclick="division()" type="button">calculate</button>
+          </div>
+          <div class="col-lg-1">
+            <button class="btn btn-danger" type="button" id="return4">return</button>
+          </div>
+          <br><br>
+          <fieldset disabled>
+            <textarea id="text4" rows="6" cols="30" ></textarea><br>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/p62.js" type="text/javascript"></script>
+  </body>
+</html>
