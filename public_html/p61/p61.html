@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>point 61</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <div class="container col-lg-4 col-md-12 jumbotron">
+      <div class="text-center"><br><br>
+        <h1>TIME</h1>
+        <br><br>
+        <label for="array">Indicate size arrangement</label>
+        <br><br>
+        <input type="number" id="array">
+        <br><br>
+        <button class="btn btn-success" id="size" onclick="math()" type="button">Define</button>
+        <br><br>
+        <div id="save">
+          <label for="numbers">Write a number</label>
+          <br><br>
+          <input type="number" id="numbers">
+          <br><br>
+          <button class="btn btn-success" id="numbersaved" onclick="save()" type="button">Save Number</button>
+          <br><br>
+        </div>
+      </div>
+    </div>
+    <div id="solution" class="text-center container jumbotron col-lg-4 col-md-12">
+      <div id="print"></div>
+    </div>
+    <div id="solution2" class="text-center container jumbotron col-lg-4 col-md-12">
+      <div id="print2"></div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/p61.js" type="text/javascript"></script>
+  </body>
+</html>
