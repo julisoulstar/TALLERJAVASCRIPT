@@ -605,10 +605,8 @@ function two() {
   var identificationcard = prompt("Escriba la cedula del empleado a registrar las horas laborales");
   for (let contact of Inventory) {
     if (contact.cedula === identificationcard) {
-      flag++;
-      if (flag === 1) {
-        var Daytimehours
-      }
+      flag = 1;
+      var Daytimehours
     }
   }
   one();
