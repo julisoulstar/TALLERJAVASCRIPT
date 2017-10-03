@@ -40,7 +40,6 @@ function save() {
   i++;
   if (a == $("#array").val()) {
     $("#numbersaved").attr('disabled', 'disabled');
-    console.log(array);
 
     i = 0;
     do {

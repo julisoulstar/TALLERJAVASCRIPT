@@ -1,18 +1,15 @@
-    var date =  prompt('Enter first date YY , MM , DD');
-    console.log('First date entered : '+date);
-    
-    var date2 =  prompt('Enter second date YY , MM , DD');
-    console.log('Second date entered : '+date2);
-    
-    
-    
-    var a = new Date (date);
-    var b = new Date (date2);
-    
-    var c =a-b;
-    var days = Math.floor(c/(1000*60*60*24));
-    var months=days/30;
-    var years=months/12;
-    console.log('Difference in days : '+days);
-    console.log('Difference in months : '+months);
-    console.log('Difference in years : '+years);
+var date1 = prompt('Enter first date YY , MM , DD');
+console.log('First date entered : ' + date1);
+var date2 = prompt('Enter second date YY , MM , DD');
+console.log('Second date entered : ' + date2);
+date1 = new Date(date1);
+date2 = new Date(date2);
+if (date2.getTime() > date1.getTime()) {
+  var diference = date2.getTime() - date1.getTime();
+} else {
+  var diference = date1.getTime() - date2.getTime();
+}
+var years = parseInt(diference / (1000 * 60 * 60 * (24 * 364)));
+var months = parseInt(diference / (1000 * 60 * 60 * (24 * 30.4167)));
+var days = parseInt(diference / (1000 * 60 * 60 * 24));
+console.log("difference in years : " + years + " difference in months : " + months + " difference in days : " + days);
