@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>point 64</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-center"><br><br>
+        <div id="menu">
+          <br><br>
+          <button class="btn btn-danger" type="button" id="fill" >Fill arrangement</button>
+          <br><br>
+          <button class="btn btn-danger" type="button" id="find" >Find element by sequential search method</button>
+          <br><br>
+          <button class="btn btn-info" type="button" id="bubble" onclick="bubble()">Apply bubble sorting method</button>
+          <br><br>
+          <button class="btn btn-info" type="button" id="bidirectional" onclick="bidirectional()">Apply bidirectional bubble sorting method</button>
+          <br><br>
+          <button class="btn btn-info" type="button" id="insertion" onclick="insertion()">Apply insertion sort method</button>
+          <br><br>
+          <button class="btn btn-info" type="button" id="mixing" onclick="mixing()">Apply method of sorting by mixing</button>
+          <br><br>
+          <button class="btn btn-info" type="button" id="selection" onclick="selection()">Apply the ordering method by selection</button>
+          <br><br>
+          <button class="btn btn-success" type="button" id="print" onclick="print()">Print Arrangement</button>
+          <br><br>
+        </div>
+        <div id="Fillarrangement">
+          <div class="col-lg-2 col-lg-offset-5">
+            <label for="size">Set size of the array</label>
+            <br><br>
+            <input type="number" id="size">
+          </div>
+          <br><br>
+          <div id="message"></div>
+          <br><br>
+          <div class="col-lg-1">
+            <button class="btn btn-info" onclick="size()" type="button">SAVE</button>
+          </div>
+          <br><br>
+          <div class="col-lg-12">
+            <button class="btn btn-info" onclick="fill()" type="button">Fill arrangement (random numbers)</button>
+          </div>
+          <br><br>
+          <div id="refill" class="col-lg-12">you are sure to re-fill the arrangement?
+            <br><br>
+            <button class="btn btn-info" id="sure" type="button">fill in anyway</button>
+          </div>
+          <br><br>
+          <div id="message2"></div>
+          <br><br>
+          <div class="col-lg-12">
+            <button class="btn btn-danger" type="button" id="return1">return</button>
+          </div>
+        </div>
+        <div id="findelement">
+          <div class="col-lg-4 col-lg-offset-4">
+            <label for="search">Find element by sequential search method</label>
+            <br><br>
+            <input type="number" id="search">
+          </div>
+          <br><br>
+          <div id="answer"></div>
+          <br><br>
+          <div class="col-lg-1 col-lg-pull-1">
+            <button class="btn btn-info" onclick="find()" type="button">SEARCH</button>
+          </div>
+          <br><br>
+          <div class="col-lg-12">
+            <button class="btn btn-danger" type="button" id="return3">return</button>
+          </div>
+        </div>
+        <div id="printarray">
+          <h2>ARRAY</h2>
+          <br>
+          <div id="print2"></div>
+          <div class="col-lg-6 col-lg-offset-3">
+            <button class="btn btn-danger" type="button" id="return2">return</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/p64.js" type="text/javascript"></script>
+  </body>
+</html>
