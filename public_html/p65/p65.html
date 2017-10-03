@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>point 65</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <div class="container jumbotron">
+      <div class="text-center"><br><br>
+        <h1>Kitchen Products</h1>
+        <br><br>
+        <div id="menu">
+          <button class="btn btn-warning" type="button" id="register">Register Item</button>
+          <br><br>
+          <button class="btn btn-info" type="button" id="find">Search Items</button>
+          <br><br>
+          <button class="btn btn-danger" type="button" id="print" onclick="print()">Print Registered Items</button>
+          <br><br>
+        </div>
+        <div id="registerelements">
+          <div class="col-lg-2 col-lg-offset-4">
+            <label for="name">Type element name</label>
+            <br><br>
+            <input type="text" id="name">
+          </div>
+          <div class="col-lg-2">
+            <label for="code">Type element code</label>
+            <br><br>
+            <input type="text" id="code">
+          </div>
+          <div class="col-lg-12">
+            <br><br>
+            <button class="btn btn-success" type="button" id="Register" onclick="register()">Register</button>
+            <br><br>
+          </div>
+          <div class="col-lg-12">
+            <button class="btn btn-danger" type="button" id="return1">return</button>
+          </div>
+        </div>
+        <div id="findelement">
+          <div class="col-lg-5 col-lg-offset-1">
+            <label for="name2">Type the name of the item you want to search for</label>
+            <br><br>
+            <input type="text" id="name2">
+            <br><br>
+            <div id="answer1"></div>
+            <br><br>
+            <button class="btn btn-warning" onclick="findname()" type="button">SEARCH</button>
+          </div>
+          <div class="col-lg-5">
+            <label for="code2">Write the code of the item you want to search</label>
+            <br><br>
+            <input type="text" id="code2">
+            <br><br>
+            <div id="answer2"></div>
+            <br><br>
+            <button class="btn btn-warning" onclick="findcode()" type="button">SEARCH</button>
+          </div>
+          <br><br>
+          <div class="col-lg-12">
+            <button class="btn btn-danger" type="button" id="return2">return</button>
+          </div>
+        </div>
+        <div id="printelement">
+          <h2>ELEMENTS</h2>
+          <br><br>
+          <div id="print2"></div>
+          <div class="col-lg-6 col-lg-offset-3">
+            <br><br>
+            <button class="btn btn-danger" type="button" id="return3">return</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/p65.js" type="text/javascript"></script>
+  </body>
+</html>
